@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Game_data
 {
@@ -19,5 +20,19 @@ public class Game_data
     {
         this.Phase = GamePhase.hero;
         this.Turn = 1;
+    }
+}
+
+[System.Serializable]
+public class TileCard
+{
+    public string name;
+    public static uint count;
+    public int id;
+    public bool is_black;
+    public uint square_count;
+    public TileCard() {
+        count++;
+        id = count.GetHashCode();
     }
 }
